@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Pro Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body data-theme="light">
+
+<div class="container">
+    <header class="header">
+        <h1>BUDGET TRACKER</h1>
+        <button class="theme-btn" id="theme-toggle">🌓 Theme</button>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card balance">
+            <h3>Total Balance</h3>
+            <h2 id="balance">$0.00</h2>
+        </div>
+        <div class="stat-card income">
+            <h3>Income</h3>
+            <h2 id="money-plus">+$0.00</h2>
+        </div>
+        <div class="stat-card expense">
+            <h3>Expenses</h3>
+            <h2 id="money-minus">-$0.00</h2>
+        </div>
+    </div>
+
+    <div class="form-layout">
+        <div class="form-box">
+            <h3>Add Transaction</h3>
+            <form id="trans-form">
+                <input type="text" id="text" placeholder="Description" required>
+                <input type="number" id="amount" placeholder="Amount (-50, 100)" required>
+                <input type="date" id="date" required>
+                <select id="cat-select"></select>
+                <button type="submit" id="submit-btn">Save Transaction</button>
+                <button type="button" id="cancel-btn" style="display:none; background:gray">Cancel</button>
+            </form>
+        </div>
+
+        <div class="manage-container">
+            <h3>Categories</h3>
+            <form id="cat-form">
+                <input type="text" id="new-cat" placeholder="New category..." required>
+                <button type="submit" class="btn-income-alt">Add a Category</button>
+            </form>
+            
+            <div class="dropdown-wrapper">
+                <button id="mgr-toggle-btn" class="mgr-btn">⚙️ Manage Categories</button>
+                <div id="manager-list" class="manager-dropdown">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="history-section">
+        <h3>Transaction History</h3>
+        <input type="text" id="search" placeholder="Search by name or category...">
+        <ul id="list"></ul>
+    </div>
+
+    <div class="charts-row">
+        <div class="chart-box">
+            <h4>Spending Breakdown</h4>
+            <div class="canvas-wrapper">
+                <canvas id="dChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-box">
+            <h4>Income vs Expenses</h4>
+            <div class="canvas-wrapper">
+                <canvas id="bChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
